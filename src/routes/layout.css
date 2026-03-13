@@ -5,10 +5,12 @@
 	--font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
 	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
-	--color-surface: #fafaf7;
+	/* --color-surface: #fafaf7; */
+	--color-surface: #ffffff;
 	--color-ink: #1c1c1c;
 	--color-ink-muted: #70706a;
-	--color-accent: #c05538;
+	/* --color-accent: #c05538; */
+	--color-accent: #FF26B3;
 	--color-rule: #e0ddd8;
 }
 
@@ -24,8 +26,15 @@ body {
 }
 
 ::selection {
-	background-color: var(--color-accent);
+	background: var(--color-accent);
 	color: white;
+	text-shadow:
+		0 0 4px rgba(255, 255, 255, 1),
+		0 0 10px rgba(255, 255, 255, 0.95),
+		0 0 18px rgba(255, 255, 255, 0.85),
+		0 0 28px rgba(255, 255, 255, 0.7),
+		0 0 40px rgba(255, 255, 255, 0.5),
+		0 0 56px rgba(255, 255, 255, 0.3);
 }
 
 a {
