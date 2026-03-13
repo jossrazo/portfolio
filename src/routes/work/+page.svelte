@@ -21,7 +21,7 @@
 	const projects = [
 		{
 			id: 'sensenote',
-			year: '2025',
+			year: '2026',
 			type: 'Browser Extension',
 			title: 'SenseNote',
 			href: 'https://github.com/jossrazo/sensenote',
@@ -36,9 +36,9 @@
 			type: 'E-commerce Store',
 			title: 'Collections by Calista',
 			href: 'https://collectionsbycalista.com',
-			summary: 'A custom Shopify storefront built for an e-commerce client.',
+			summary: 'Custom Shopify storefront built for an e-commerce client.',
 			description:
-				"I replaced multiple paid plugins with custom-built features — color swatches, order bumps, dynamic filtering — cutting the client's annual operating costs by over 50% and achieving a 4% conversion rate.",
+				"I replaced multiple paid plugins with custom-built features — color swatches, order bumps, dynamic filtering — cutting the client's annual operating costs by over 50% and achieving a 4% conversion rate against Shopify's 1.3–1.8% average.",
 			images: ['/images/projects/calista1.png', '/images/projects/calista2.png']
 		},
 		{
@@ -48,9 +48,9 @@
 			title: 'Feast Events',
 			href: null,
 			summary:
-				"A full-stack event management platform built during my internship at Shepherd's Voice Radio and Television.",
+				"Event management platform built during my internship at Shepherd's Voice Radio and Television.",
 			description:
-				'I developed the public-facing homepage, shopping cart, checkout flow, and an admin analytics dashboard with interactive revenue and sales visualizations. Built with CodeIgniter 4, MySQL, and Bootstrap 5.',
+				'I designed and developed the customer-facing storefront and checkout flow, an admin dashboard with revenue and sales visualizations, and ticket and discount management tools. Built with CodeIgniter 4, MySQL, and Bootstrap 5.',
 			images: [
 				'/images/projects/svrtv1.png',
 				'/images/projects/svrtv2.png',
