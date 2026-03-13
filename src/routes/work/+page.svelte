@@ -19,7 +19,19 @@
 					<p class="mt-1">Browser Extension</p>
 				</div>
 				<div>
-					<h2 class="font-serif text-[1.625rem] leading-snug tracking-tight">SenseNote</h2>
+					<a
+						href="https://github.com/jossrazo/sensenote"
+						target = "_blank"
+						class="group inline-flex items-baseline gap-2 font-serif text-[1.625rem] leading-snug tracking-tight transition-colors hover:text-accent"
+					>
+						<h2 class="font-serif text-[1.625rem] leading-snug tracking-tight">SenseNote</h2>
+						<span
+							class="text-[0.9em] opacity-0 transition-opacity group-hover:opacity-100"
+							title="View project"
+							aria-hidden="true"
+							>↗</span
+						>
+					</a>
 					<p class="mt-3 leading-relaxed text-ink-muted">[Insert Description...]</p>
 				</div>
 			</article>
@@ -31,9 +43,21 @@
 					<p class="mt-1">Shopify Store</p>
 				</div>
 				<div>
-					<h2 class="font-serif text-[1.625rem] leading-snug tracking-tight">
-						Collections by Calista
-					</h2>
+					<a
+						href="https://collectionsbycalista.com"
+						target = "_blank"
+						class="group inline-flex items-baseline gap-2 font-serif text-[1.625rem] leading-snug tracking-tight transition-colors hover:text-accent"
+					>
+						<h2 class="font-serif text-[1.625rem] leading-snug tracking-tight">
+							Collections by Calista
+						</h2>
+						<span
+							class="text-[0.9em] opacity-0 transition-opacity group-hover:opacity-100"
+							title="View project"
+							aria-hidden="true"
+							>↗</span
+						>
+					</a>
 					<p class="mt-3 leading-relaxed text-ink-muted">[Insert Description...]</p>
 				</div>
 			</article>
@@ -45,7 +69,7 @@
 					<p class="mt-1">Internship</p>
 				</div>
 				<div>
-					<h2 class="font-serif text-[1.625rem] leading-snug tracking-tight">Event Booking</h2>
+					<h2 class="font-serif text-[1.625rem] leading-snug tracking-tight">Feast Events</h2>
 					<p class="mt-3 leading-relaxed text-ink-muted">[Insert Description...]</p>
 				</div>
 			</article>
@@ -57,7 +81,19 @@
 					<p class="mt-1">Capstone</p>
 				</div>
 				<div>
-					<h2 class="font-serif text-[1.625rem] leading-snug tracking-tight">SalinSign</h2>
+					<a
+						href="https://github.com/jossrazo/salinsign-repo"
+						target = "_blank"
+						class="group inline-flex items-baseline gap-2 font-serif text-[1.625rem] leading-snug tracking-tight transition-colors hover:text-accent"
+					>
+						<h2 class="font-serif text-[1.625rem] leading-snug tracking-tight">SalinSign</h2>
+						<span
+							class="text-[0.9em] opacity-0 transition-opacity group-hover:opacity-100"
+							title="View project"
+							aria-hidden="true"
+							>↗</span
+						>
+					</a>
 					<p class="mt-3 leading-relaxed text-ink-muted">[Insert Description...]</p>
 				</div>
 			</article>
