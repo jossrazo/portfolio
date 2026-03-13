@@ -10,7 +10,7 @@
 	--color-ink: #1c1c1c;
 	--color-ink-muted: #70706a;
 	/* --color-accent: #c05538; */
-	--color-accent: #FF26B3;
+	--color-accent: #FF1CD4;
 	--color-rule: #e0ddd8;
 }
 
@@ -40,5 +40,13 @@ body {
 a {
 	color: inherit;
 	text-decoration: none;
-	transition: color 0.15s ease;
+	transition: color 0.15s ease, background-color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-decoration-color: var(--color-accent);
+	text-underline-offset: 3px;
+	background-color: #e8e8e4;
 }
