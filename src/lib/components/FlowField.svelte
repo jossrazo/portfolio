@@ -57,9 +57,9 @@
 		let animId: number;
 		let mouse = { x: -1000, y: -1000, vx: 0, vy: 0, prevX: -1000, prevY: -1000 };
 
-		const PARTICLE_COUNT = 700;
+		const PARTICLE_COUNT = 400;
 		const NOISE_SCALE = 0.003;
-		const SPEED = 1.2;
+		const SPEED = 0.8;
 		const MOUSE_RADIUS = 180;
 
 		let w: number, h: number;
@@ -68,6 +68,7 @@
 			y: number;
 			age: number;
 			maxAge: number;
+			radius: number;
 			accent: boolean;
 		}[] = [];
 		let time = 0;
@@ -87,7 +88,8 @@
 				x: Math.random() * w,
 				y: Math.random() * h,
 				age: 0,
-				maxAge: 200 + Math.random() * 300,
+				maxAge: 80 + Math.random() * 140,
+				radius: 1 + Math.random() * 2.5,
 				accent: Math.random() < 0.08
 			};
 		}
@@ -103,12 +105,11 @@
 		}
 
 		function draw() {
-			ctx.fillStyle = 'rgba(255, 255, 255, 0.012)';
+			ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
 			ctx.fillRect(0, 0, w, h);
 
 			time += 0.002;
 
-			// Smooth mouse velocity
 			if (mouse.prevX > -500) {
 				mouse.vx = mouse.vx * 0.7 + (mouse.x - mouse.prevX) * 0.3;
 				mouse.vy = mouse.vy * 0.7 + (mouse.y - mouse.prevY) * 0.3;
@@ -136,46 +137,41 @@
 					const ease = t * t;
 					nearMouse = t > 0.3;
 
-					// Repulsion — push away from cursor
-					const repulse = ease * 3;
+					const repulse = ease * 2.5;
 					mx += (dx / dist) * repulse;
 					my += (dy / dist) * repulse;
 
-					// Swirl — perpendicular force creates orbiting
-					const swirlStrength = ease * 1.8;
+					const swirlStrength = ease * 1.5;
 					mx += (-dy / dist) * swirlStrength;
 					my += (dx / dist) * swirlStrength;
 
-					// Turbulence from mouse movement — particles inherit mouse velocity
-					const turbulence = ease * Math.min(mouseSpeed * 0.15, 2.5);
-					mx += mouse.vx * turbulence * 0.08;
-					my += mouse.vy * turbulence * 0.08;
+					const turbulence = ease * Math.min(mouseSpeed * 0.12, 2);
+					mx += mouse.vx * turbulence * 0.06;
+					my += mouse.vy * turbulence * 0.06;
 				}
 
 				const vx = Math.cos(angle) * SPEED + mx;
 				const vy = Math.sin(angle) * SPEED + my;
 
-				const lifeFraction = p.age / p.maxAge;
-				const alpha = Math.sin(lifeFraction * Math.PI) * 0.7;
-
-				ctx.beginPath();
-				ctx.moveTo(p.x, p.y);
-
 				p.x += vx;
 				p.y += vy;
 				p.age++;
 
-				ctx.lineTo(p.x, p.y);
+				const lifeFraction = p.age / p.maxAge;
+				const alpha = Math.sin(lifeFraction * Math.PI);
+
+				const r = p.radius * (0.6 + alpha * 0.4);
+
+				ctx.beginPath();
+				ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
 
 				if (nearMouse || p.accent) {
-					const accentAlpha = nearMouse ? alpha * 0.25 : alpha * 0.15;
-					ctx.strokeStyle = `rgba(255, 28, 212, ${accentAlpha})`;
-					ctx.lineWidth = nearMouse ? 1.5 : 1.2;
+					const a = (nearMouse ? alpha * 0.3 : alpha * 0.18);
+					ctx.fillStyle = `rgba(255, 28, 212, ${a})`;
 				} else {
-					ctx.strokeStyle = `rgba(28, 28, 28, ${alpha * 0.08})`;
-					ctx.lineWidth = 0.8;
+					ctx.fillStyle = `rgba(28, 28, 28, ${alpha * 0.1})`;
 				}
-				ctx.stroke();
+				ctx.fill();
 
 				if (p.age > p.maxAge || p.x < -10 || p.x > w + 10 || p.y < -10 || p.y > h + 10) {
 					particles[i] = spawnParticle();

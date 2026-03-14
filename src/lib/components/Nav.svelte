@@ -31,7 +31,7 @@
 	});
 </script>
 
-<nav class="flex items-center justify-between py-8 sm:py-10">
+<nav class="mb-6 flex items-center justify-between py-8 sm:py-10">
 	<a href="/" class="font-serif text-[1.375rem] leading-none tracking-tight">J. Razo</a>
 
 	<div class="flex items-center gap-6 sm:gap-8">
