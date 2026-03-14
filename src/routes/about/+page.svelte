@@ -49,10 +49,19 @@
 				<h3 class="mb-2 text-xs font-medium tracking-[0.1em] text-ink uppercase">Currently</h3>
 				<p>Open to Work</p>
 			</div>
-			<!-- <div>
-				<h3 class="mb-2 text-xs font-medium tracking-[0.1em] text-ink uppercase">Technologies</h3>
-				<p>TypeScript, Svelte, PHP, Node.js, Python</p>
-			</div> -->
+			<div>
+				<h3 class="mb-3 text-xs font-medium tracking-[0.1em] text-ink uppercase">Experience</h3>
+				<ul class="space-y-3">
+					<li>
+						<p class="text-ink">Web Developer</p>
+						<p class="text-ink-muted">Collections by Calista · 2025</p>
+					</li>
+					<li>
+						<p class="text-ink">Software Developer Intern</p>
+						<p class="text-ink-muted">Shepherd's Voice Radio and Television · 2025</p>
+					</li>
+				</ul>
+			</div>
 			<div>
 				<h3 class="mb-2 text-xs font-medium tracking-[0.1em] text-ink uppercase">Elsewhere</h3>
 				<ul class="mt-2 space-y-1">
