@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fly, fade, slide } from 'svelte/transition';
+
 	let expanded: Record<string, boolean> = $state({});
 	let lightboxImages: string[] = $state([]);
 
@@ -16,6 +18,20 @@
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'Escape') closeLightbox();
+	}
+
+	function reveal(node: HTMLElement) {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					node.classList.add('is-visible');
+					observer.unobserve(node);
+				}
+			},
+			{ threshold: 0.15 }
+		);
+		observer.observe(node);
+		return { destroy: () => observer.disconnect() };
 	}
 
 	const projects = [
@@ -82,16 +98,24 @@
 </svelte:head>
 
 <section class="pt-20 pb-16 sm:pt-32 sm:pb-20">
-	<h1 class="font-serif text-5xl tracking-tight sm:text-6xl">Work</h1>
-	<p class="mt-6 max-w-md text-lg leading-relaxed text-ink-muted">
+	<h1
+		class="font-serif text-5xl tracking-tight sm:text-6xl"
+		in:fly={{ y: 20, duration: 500, delay: 100 }}
+	>
+		Work
+	</h1>
+	<p
+		class="mt-6 max-w-md text-lg leading-relaxed text-ink-muted"
+		in:fly={{ y: 20, duration: 500, delay: 250 }}
+	>
 		A selection of projects, experiments, and contributions.
 	</p>
 </section>
 
 <section class="border-t border-rule">
 	<ol class="divide-y divide-rule">
-		{#each projects as project}
-			<li>
+		{#each projects as project, i}
+			<li use:reveal class="reveal-entry" style="--delay: {150 + i * 100}ms">
 				<article class="grid grid-cols-1 gap-4 py-10 sm:grid-cols-[10rem_1fr] sm:gap-12">
 					<div class="text-sm text-ink-muted">
 						<p>{project.year}</p>
@@ -130,33 +154,38 @@
 						</p>
 
 						{#if expanded[project.id]}
-							<p class="mt-2 leading-relaxed text-ink-muted">
-								{project.description}
-							</p>
+							<div transition:slide={{ duration: 300 }}>
+								<p class="mt-2 leading-relaxed text-ink-muted">
+									{project.description}
+								</p>
 
-							{#if project.images.length > 0}
-								<div class="mt-6 flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2">
-									{#each project.images as src}
-										<button
-											class="shrink-0 cursor-zoom-in snap-start overflow-hidden rounded border border-rule transition-transform duration-200 hover:scale-[1.02]"
-											onclick={() => openLightbox(project.images)}
-										>
-											<img
-												{src}
-												alt="{project.title} screenshot"
-												class="h-80 w-auto object-cover sm:h-96"
-											/>
-										</button>
-									{/each}
-								</div>
-							{/if}
+								{#if project.images.length > 0}
+									<div
+										class="mt-6 flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2"
+									>
+										{#each project.images as src, imgIdx}
+											<button
+												class="shrink-0 cursor-zoom-in snap-start overflow-hidden rounded border border-rule transition-transform duration-200 hover:scale-[1.02]"
+												onclick={() => openLightbox(project.images)}
+												in:fly={{ y: 16, duration: 350, delay: imgIdx * 80 }}
+											>
+												<img
+													{src}
+													alt="{project.title} screenshot"
+													class="h-80 w-auto object-cover sm:h-96"
+												/>
+											</button>
+										{/each}
+									</div>
+								{/if}
 
-							<button
-								class="mt-4 cursor-pointer text-sm text-ink-muted/70 transition-colors hover:text-ink"
-								onclick={() => toggle(project.id)}
-							>
-								See less
-							</button>
+								<button
+									class="mt-4 cursor-pointer text-sm text-ink-muted/70 transition-colors hover:text-ink"
+									onclick={() => toggle(project.id)}
+								>
+									See less
+								</button>
+							</div>
 						{/if}
 					</div>
 				</article>
@@ -173,16 +202,35 @@
 		aria-modal="true"
 		tabindex="-1"
 		onclick={closeLightbox}
-		onkeydown={(e) => { if (e.key === 'Escape') closeLightbox(); }}
+		onkeydown={(e) => {
+			if (e.key === 'Escape') closeLightbox();
+		}}
+		transition:fade={{ duration: 200 }}
 	>
 		<div class="flex min-h-full flex-col items-center gap-6 px-6 py-12 sm:py-16">
-			{#each lightboxImages as src}
+			{#each lightboxImages as src, i}
 				<img
 					{src}
 					alt="Project screenshot"
 					class="max-w-[90vw] cursor-default rounded object-contain shadow-2xl sm:max-w-[72vw]"
+					in:fly={{ y: 30, duration: 400, delay: 100 + i * 80 }}
 				/>
 			{/each}
 		</div>
 	</div>
 {/if}
+
+<style>
+	.reveal-entry {
+		opacity: 0;
+		transform: translateY(16px);
+		transition:
+			opacity 0.5s ease var(--delay),
+			transform 0.5s ease var(--delay);
+	}
+
+	:global(.reveal-entry.is-visible) {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>
