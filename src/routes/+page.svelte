@@ -1,39 +1,15 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import FlowField from '$lib/components/FlowField.svelte';
-	import DotGrid from '$lib/components/DotGrid.svelte';
-	import Constellation from '$lib/components/Constellation.svelte';
-	import Orbits from '$lib/components/Orbits.svelte';
-	import Magnetic from '$lib/components/Magnetic.svelte';
-	import Pulse from '$lib/components/Pulse.svelte';
-	import Traces from '$lib/components/Traces.svelte';
-	import Lissajous from '$lib/components/Lissajous.svelte';
+	import { onMount } from 'svelte';
+	import AsciiWave from '$lib/components/AsciiWave.svelte';
 	import TouchFlow from '$lib/components/TouchFlow.svelte';
 
-	const options = [
-		'flow',
-		'dots',
-		'constellation',
-		'orbits',
-		'magnetic',
-		'pulse',
-		'traces',
-		'lissajous'
-	] as const;
-	type Option = (typeof options)[number];
-	let current: Option = $state('flow');
 	let isMobile = $state(false);
-
-	function cycle() {
-		const idx = options.indexOf(current);
-		current = options[(idx + 1) % options.length];
-	}
 
 	function checkMobile() {
 		isMobile = window.innerWidth < 640;
 	}
 
-	import { onMount } from 'svelte';
 	onMount(() => {
 		checkMobile();
 		window.addEventListener('resize', checkMobile);
@@ -51,25 +27,7 @@
 		{#if isMobile}
 			<TouchFlow />
 		{:else}
-			{#key current}
-				{#if current === 'flow'}
-					<FlowField />
-				{:else if current === 'dots'}
-					<DotGrid />
-				{:else if current === 'constellation'}
-					<Constellation />
-				{:else if current === 'orbits'}
-					<Orbits />
-				{:else if current === 'magnetic'}
-					<Magnetic />
-				{:else if current === 'pulse'}
-					<Pulse />
-				{:else if current === 'traces'}
-					<Traces />
-				{:else}
-					<Lissajous />
-				{/if}
-			{/key}
+			<AsciiWave />
 		{/if}
 
 		<div
@@ -85,17 +43,18 @@
 				class="mt-3 text-lg text-ink-muted sm:text-xl"
 				in:fly={{ y: 20, duration: 500, delay: 450 }}
 			>
-				Developer | Manila
+				Developer | Metro Manila
+				<span class="pointer-events-auto"> | </span>
+				<a
+					href="https://drive.google.com/drive/folders/1h-Xl2TpbaCO_oCZQj4qRge11SmYkG1Bv?usp=sharing"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="pointer-events-auto text-ink-muted transition-colors hover:text-ink"
+				>
+					Resume
+				</a>
 			</p>
 		</div>
 
-		{#if !isMobile}
-			<button
-				class="absolute right-6 bottom-6 cursor-pointer rounded-full border border-rule bg-white/80 px-4 py-2 text-xs uppercase tracking-widest text-ink-muted backdrop-blur-sm transition-colors hover:text-ink sm:right-10 sm:bottom-10"
-				onclick={cycle}
-			>
-				{current}
-			</button>
-		{/if}
 	</div>
 </section>
