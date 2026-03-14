@@ -3,8 +3,8 @@
 	import { onMount } from 'svelte';
 
 	const links = [
-		{ href: '/work', label: 'Work' },
-		{ href: '/about', label: 'About' }
+		{ href: '/work', label: 'work' },
+		{ href: '/about', label: 'about' }
 	];
 
 	let timeDisplay = $state('');
@@ -32,7 +32,7 @@
 </script>
 
 <nav class="mb-6 flex items-center justify-between py-8 sm:py-10">
-	<a href="/" class="font-serif text-[1.375rem] leading-none tracking-tight">J. Razo</a>
+	<a href="/" class="font-serif text-[0.8125rem] tracking-[0.08em]">joss-razo</a>
 
 	<div class="flex items-center gap-6 sm:gap-8">
 		<span
@@ -41,7 +41,7 @@
 			{timeDisplay}&ensp;{yearDisplay}
 		</span>
 
-		<ul class="flex gap-8 text-[0.8125rem] tracking-[0.08em] uppercase">
+		<ul class="flex gap-8 text-[0.8125rem] tracking-[0.08em]">
 			{#each links as { href, label }}
 				<li>
 					<a
