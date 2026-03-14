@@ -161,11 +161,11 @@
 
 								{#if project.images.length > 0}
 									<div
-										class="mt-6 flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2"
+										class="mt-6 flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory p-2"
 									>
 										{#each project.images as src, imgIdx}
 											<button
-												class="shrink-0 cursor-zoom-in snap-start overflow-hidden rounded border border-rule transition-transform duration-200 hover:scale-[1.02]"
+												class="shrink-0 cursor-zoom-in snap-start overflow-hidden rounded border border-rule transition-all duration-200 hover:scale-[1.02] hover:shadow-md"
 												onclick={() => openLightbox(project.images)}
 												in:fly={{ y: 16, duration: 350, delay: imgIdx * 80 }}
 											>
