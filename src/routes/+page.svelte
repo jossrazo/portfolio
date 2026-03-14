@@ -1,59 +1,82 @@
+<script lang="ts">
+	import { fly } from 'svelte/transition';
+	import FlowField from '$lib/components/FlowField.svelte';
+	import DotGrid from '$lib/components/DotGrid.svelte';
+	import Constellation from '$lib/components/Constellation.svelte';
+	import Orbits from '$lib/components/Orbits.svelte';
+	import Magnetic from '$lib/components/Magnetic.svelte';
+	import Pulse from '$lib/components/Pulse.svelte';
+	import Traces from '$lib/components/Traces.svelte';
+	import Lissajous from '$lib/components/Lissajous.svelte';
+
+	const options = [
+		'flow',
+		'dots',
+		'constellation',
+		'orbits',
+		'magnetic',
+		'pulse',
+		'traces',
+		'lissajous'
+	] as const;
+	type Option = (typeof options)[number];
+	let current: Option = $state('flow');
+
+	function cycle() {
+		const idx = options.indexOf(current);
+		current = options[(idx + 1) % options.length];
+	}
+</script>
+
 <svelte:head>
 	<title>J. Razo — Developer</title>
 	<meta name="description" content="Developer portfolio of J. Razo" />
 </svelte:head>
 
-<!-- Hero -->
-<section class="pt-20 pb-16 sm:pt-32 sm:pb-24">
-	<h1 class="font-serif text-[clamp(2.75rem,7vw,5.5rem)] leading-[1.05] tracking-tight">
-		Joss Razo
-	</h1>
-	<p class="mt-8 max-w-md text-lg leading-relaxed text-ink-muted">
-		Software Developer who cares about the craft and the details.
-	</p>
-</section>
+<section class="relative -mx-6 -mt-8 sm:-mx-10 sm:-mt-10">
+	<div class="relative h-[82vh] min-h-[32rem] overflow-hidden">
+		{#key current}
+			{#if current === 'flow'}
+				<FlowField />
+			{:else if current === 'dots'}
+				<DotGrid />
+			{:else if current === 'constellation'}
+				<Constellation />
+			{:else if current === 'orbits'}
+				<Orbits />
+			{:else if current === 'magnetic'}
+				<Magnetic />
+			{:else if current === 'pulse'}
+				<Pulse />
+			{:else if current === 'traces'}
+				<Traces />
+			{:else}
+				<Lissajous />
+			{/if}
+		{/key}
 
-<!-- Selected Work -->
-<section class="border-t border-rule py-16 sm:py-20">
-	<div class="mb-12 flex items-baseline justify-between">
-		<h2 class="font-serif text-3xl tracking-tight sm:text-4xl">Projects</h2>
-		<a
-			href="/work"
-			class="text-[0.8125rem] tracking-wide text-ink-muted transition-colors hover:text-ink"
+		<div
+			class="pointer-events-none absolute inset-0 flex flex-col justify-end p-6 pb-16 sm:p-10 sm:pb-20"
 		>
-			View in detail &rarr;
-		</a>
-	</div>
+			<h1
+				class="font-serif text-[clamp(2.5rem,8vw,6rem)] leading-[1.02] tracking-tight"
+				in:fly={{ y: 24, duration: 600, delay: 200 }}
+			>
+				Joss Razo
+			</h1>
+			<p
+				class="mt-3 text-lg text-ink-muted sm:text-xl"
+				in:fly={{ y: 20, duration: 500, delay: 450 }}
+			>
+				Developer | Manila
+			</p>
+		</div>
 
-	<ol class="divide-y divide-rule">
-		<li>
-			<article class="group py-8 sm:py-10">
-				<div class="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
-					<h3 class="font-serif text-[1.625rem] leading-snug tracking-tight">SenseNote</h3>
-					<span class="text-sm text-ink-muted">2026</span>
-				</div>
-				<p class="mt-3 max-w-xl leading-relaxed text-ink-muted">[Insert Description...]</p>
-			</article>
-		</li>
-		<li>
-			<article class="group py-8 sm:py-10">
-				<div class="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
-					<h3 class="font-serif text-[1.625rem] leading-snug tracking-tight">
-						Collections by Calista
-					</h3>
-					<span class="text-sm text-ink-muted">2025</span>
-				</div>
-				<p class="mt-3 max-w-xl leading-relaxed text-ink-muted">[Insert Description...]</p>
-			</article>
-		</li>
-		<li>
-			<article class="group py-8 sm:py-10">
-				<div class="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
-					<h3 class="font-serif text-[1.625rem] leading-snug tracking-tight">SalinSign</h3>
-					<span class="text-sm text-ink-muted">2024</span>
-				</div>
-				<p class="mt-3 max-w-xl leading-relaxed text-ink-muted">[Insert Description...]</p>
-			</article>
-		</li>
-	</ol>
+		<button
+			class="absolute right-6 bottom-6 cursor-pointer rounded-full border border-rule bg-white/80 px-4 py-2 text-xs uppercase tracking-widest text-ink-muted backdrop-blur-sm transition-colors hover:text-ink sm:right-10 sm:bottom-10"
+			onclick={cycle}
+		>
+			{current}
+		</button>
+	</div>
 </section>
