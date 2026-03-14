@@ -1,8 +1,8 @@
-<footer class="border-t border-rule pt-10 pb-12 mt-32">
+<footer class="border-t border-rule py-5 mt-6">
 	<div
 		class="flex flex-col gap-4 text-[0.8125rem] text-ink-muted sm:flex-row sm:items-center sm:justify-between"
 	>
-		<p>&copy; {new Date().getFullYear()} J. Razo</p>
+		<p>&copy; {new Date().getFullYear()} Joss Razo</p>
 
 		<div class="flex gap-6">
 			<a href="mailto:razojossmichael@gmail.com" class="hover:text-ink transition-colors duration-150">
