@@ -2,14 +2,13 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-	--font-serif: 'Inter', system-ui, -apple-system, sans-serif;
-	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+	--font-serif: 'Manrope', system-ui, sans-serif;
+	--font-sans: 'Manrope', system-ui, sans-serif;
 
 	/* --color-surface: #fafaf7; */
 	--color-surface: #ffffff;
 	--color-ink: #1c1c1c;
 	--color-ink-muted: #70706a;
-	/* --color-accent: #c05538; */
 	--color-accent: #ff1cd4;
 	--color-rule: #e0ddd8;
 }
