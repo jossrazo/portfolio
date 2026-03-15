@@ -15,7 +15,6 @@
 		let cols: number, rows: number;
 		let ripples: { x: number; y: number; time: number; strength: number }[] = [];
 		let time = 0;
-		let lastClick = 0;
 
 		function resize() {
 			const rect = canvas.getBoundingClientRect();

@@ -113,10 +113,10 @@
 						ctx.beginPath();
 						ctx.moveTo(p.x, p.y);
 						ctx.lineTo(q.x, q.y);
-						ctx.strokeStyle =
-							proximity > 0.3
-								? `rgba(${ACCENT[0]},${ACCENT[1]},${ACCENT[2]},${alpha * 3})`
-								: `rgba(28,28,28,${alpha})`;
+					ctx.strokeStyle =
+						proximity > 0.3
+							? `rgba(${ACCENT[0]},${ACCENT[1]},${ACCENT[2]},${alpha * 3})`
+							: `rgba(28,28,28,${alpha})`;
 						ctx.lineWidth = 0.4;
 						ctx.stroke();
 					}

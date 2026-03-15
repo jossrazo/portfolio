@@ -18,8 +18,8 @@
 </script>
 
 <svelte:head>
-	<title>J. Razo — Developer</title>
-	<meta name="description" content="Developer portfolio of J. Razo" />
+	<title>Joss Razo</title>
+	<meta name="description" content="Developer Portfolio" />
 </svelte:head>
 
 <section class="relative -mx-6 -mt-8 sm:-mx-10 sm:-mt-10">
@@ -43,15 +43,15 @@
 				class="mt-3 text-lg text-ink-muted sm:text-xl"
 				in:fly={{ y: 20, duration: 500, delay: 450 }}
 			>
-				Developer | Metro Manila
+				developer | metro manila
 				<span class="pointer-events-auto"> | </span>
 				<a
-					href="https://drive.google.com/drive/folders/1h-Xl2TpbaCO_oCZQj4qRge11SmYkG1Bv?usp=sharing"
+					href="https://drive.google.com/file/d/1nkYoQnmYo_BGeKu27WyryQ2fceITqssW/view?usp=sharing"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="pointer-events-auto text-ink-muted transition-colors hover:text-ink"
 				>
-					Resume
+					resume
 				</a>
 			</p>
 		</div>
