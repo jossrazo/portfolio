@@ -18,7 +18,7 @@
 
 <svelte:head>
 	<title>About — J. Razo</title>
-	<meta name="description" content="About J. Razo — developer and creative technologist" />
+	<meta name="description" content="About Joss Razo" />
 </svelte:head>
 
 <section class="pt-20 pb-16 sm:pt-32 sm:pb-20">
@@ -34,13 +34,14 @@
 	<div class="grid grid-cols-1 gap-12 sm:grid-cols-[1fr_14rem] sm:gap-20">
 		<div class="space-y-6 text-lg leading-relaxed text-ink-muted">
 			<p use:reveal class="reveal-entry" style="--delay: 200ms">
-				I value building software that's purposeful, solving real problems without unnecessary
-				complexity. I'm drawn to technologies that share that ethos: tools that respect both the
-				developer and the end user. When I build something, I want it to work well, look
-				intentional, and be something I'd actually use myself.
+				I got into programming because I believe software, when built with care, can create
+				real, positive change in people's lives. That's not just something I say; it's what I
+				try to put into every project I work on.
 			</p>
 			<p use:reveal class="reveal-entry" style="--delay: 350ms">
-				What draws me to this work is the belief that well-built software can be a vehicle for real, positive change. That's what I want to spend my time on.
+				In every project I've been part of, I've been the one who leans in: taking ownership,
+				asking questions before touching anything, and caring about whether what gets built is
+				actually good. That's just how I tend to work.
 			</p>
 		</div>
 
@@ -103,31 +104,31 @@
 
 	<div class="mt-12 grid grid-cols-1 gap-14 sm:grid-cols-3 sm:gap-10">
 		<div use:reveal class="reveal-entry" style="--delay: 200ms">
-			<h3 class="text-xs font-medium tracking-[0.1em] uppercase">Technical</h3>
+			<h3 class="text-xs font-medium tracking-[0.1em] uppercase">Craft</h3>
 			<p class="mt-4 leading-relaxed text-ink-muted">
-				I care about the craft of writing software. I use AI-assisted development to speed up
-				my workflow and get more done, but I am a firm believer that good engineering comes from
-				understanding how things work beneath the surface. I make a point to learn one layer deeper
-				than the abstractions I use so I can build with confidence and adapt as technologies evolve.
+				I care about how things are built, not just that they work. I try to understand what's
+				happening one level below the tools I use, because that's what lets me make good
+				decisions and not just follow patterns blindly. 
+				
 			</p>
 		</div>
 
 		<div use:reveal class="reveal-entry" style="--delay: 350ms">
-			<h3 class="text-xs font-medium tracking-[0.1em] uppercase">Autonomy</h3>
+			<h3 class="text-xs font-medium tracking-[0.1em] uppercase">Ownership</h3>
 			<p class="mt-4 leading-relaxed text-ink-muted">
-				I can pick up a task and run with it. I'm comfortable figuring things out on my own, but
-				I've learned that knowing when to ask for help is just as important as knowing how to push
-				through alone.
+				Give me something to work on and I'll see it through. I'm comfortable working
+				independently, pushing through ambiguity, and figuring things out when there's no
+				clear answer. I also know when to stop guessing and ask, which I think is just as
+				important.
 			</p>
 		</div>
 
 		<div use:reveal class="reveal-entry" style="--delay: 500ms">
-			<h3 class="text-xs font-medium tracking-[0.1em] uppercase">Problem-Solving</h3>
+			<h3 class="text-xs font-medium tracking-[0.1em] uppercase">Intentionality</h3>
 			<p class="mt-4 leading-relaxed text-ink-muted">
-				Before I touch anything, I spend time understanding what I'm actually solving for — the
-				context, the constraints, the edge cases. From there, I break it into digestible chunks and
-				tackle them one at a time. It's slower at the start, but it saves me from building the wrong
-				thing.
+				Before I start anything, I want to understand what I'm actually building and why.
+				Getting that right upfront is what keeps me from spending a week on the wrong thing.
+				I'd rather ask one uncomfortable question early than discover a wrong assumption late.
 			</p>
 		</div>
 	</div>
