@@ -32,16 +32,9 @@
 </script>
 
 <nav class="mb-6 flex items-center justify-between py-8 sm:py-10">
-	<a href="/" class="font-serif text-[0.8125rem] tracking-[0.08em]">joss-razo</a>
-
-	<div class="flex items-center gap-6 sm:gap-8">
-		<span
-			class="hidden font-mono text-[0.6875rem] tracking-wider text-ink-muted/50 tabular-nums sm:block"
-		>
-			{timeDisplay}&ensp;{yearDisplay}
-		</span>
-
-		<ul class="flex gap-8 text-[0.8125rem] tracking-[0.08em]">
+	<div class="flex items-center gap-8 text-[0.8125rem] tracking-[0.08em]">
+		<a href="/" class="font-serif">joss-razo</a>
+		<ul class="flex gap-8">
 			{#each links as { href, label }}
 				<li>
 					<a
@@ -55,6 +48,12 @@
 			{/each}
 		</ul>
 	</div>
+
+	<span
+		class="hidden text-[0.8125rem] tracking-[0.08em] text-ink-muted tabular-nums sm:block"
+	>
+		{timeDisplay}&ensp;{yearDisplay}
+	</span>
 </nav>
 
 <style>
