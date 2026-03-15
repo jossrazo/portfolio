@@ -2,11 +2,11 @@
 	<div
 		class="flex flex-col gap-4 text-[0.8125rem] text-ink-muted sm:flex-row sm:items-center sm:justify-between"
 	>
-		<p>&copy; {new Date().getFullYear()} Joss Razo</p>
+		<p>&copy; {new Date().getFullYear()} joss razo</p>
 
 		<div class="flex gap-6">
 			<a href="mailto:razojossmichael@gmail.com" class="hover:text-ink transition-colors duration-150">
-				Email
+				email
 			</a>
 			<a
 				href="https://github.com/jossrazo"
@@ -14,7 +14,7 @@
 				rel="noopener noreferrer"
 				class="hover:text-ink transition-colors duration-150"
 			>
-				GitHub
+				github
 			</a>
 			<a
 				href="https://linkedin.com/in/joss-razo"
@@ -22,7 +22,7 @@
 				rel="noopener noreferrer"
 				class="hover:text-ink transition-colors duration-150"
 			>
-				LinkedIn
+				linkedin
 			</a>
 		</div>
 	</div>
